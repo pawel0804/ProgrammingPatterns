@@ -125,6 +125,16 @@ class ComposerStaticInit9a30a9b1558614a195c07c0ef18c1d27
         ),
     );
 
+    public static $prefixesPsr0 = array (
+        'V' => 
+        array (
+            'Verraes' => 
+            array (
+                0 => __DIR__ . '/..' . '/mathiasverraes/classfunctions/src',
+            ),
+        ),
+    );
+
     public static $classMap = array (
         'PHPUnit\\Exception' => __DIR__ . '/..' . '/phpunit/phpunit/src/Exception.php',
         'PHPUnit\\Framework\\ActualValueIsNotAnObjectException' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/Exception/ActualValueIsNotAnObjectException.php',
@@ -729,6 +739,7 @@ class ComposerStaticInit9a30a9b1558614a195c07c0ef18c1d27
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInit9a30a9b1558614a195c07c0ef18c1d27::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInit9a30a9b1558614a195c07c0ef18c1d27::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit9a30a9b1558614a195c07c0ef18c1d27::$prefixesPsr0;
             $loader->classMap = ComposerStaticInit9a30a9b1558614a195c07c0ef18c1d27::$classMap;
 
         }, null, ClassLoader::class);

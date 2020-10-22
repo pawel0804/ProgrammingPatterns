@@ -6,4 +6,5 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'Verraes' => array($vendorDir . '/mathiasverraes/classfunctions/src'),
 );
