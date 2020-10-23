@@ -7,6 +7,8 @@ use Money\Money;
 use PHPUnit\Framework\TestCase;
 use Ramsey\Uuid\Uuid;
 use WebSummerCamp\EventSourcing\EventStore;
+use WebSummerCamp\EventSourcing\FilesystemEventStorage;
+use WebSummerCamp\EventSourcing\InMemoryEventStorage;
 use WebSummerCamp\WebShop\ShoppingCart\CartSession;
 use WebSummerCamp\WebShop\ShoppingCart\CartSessionId;
 use WebSummerCamp\WebShop\PhysicalProduct;
@@ -31,7 +33,7 @@ class CartSessionTest extends TestCase
 
         $this->assertCount(5, $session->getRecordedEvents());
 
-        $store = new EventStore('C:\wamp64\www\ProgrammingPatterns\tmp\event-store');
+        $store = new EventStore(new InMemoryEventStorage());
         $store->store($session->getRecordedEvents());
 
         $newSession = CartSession::fromEventStream($sessionId, $store->getStream($sessionId));

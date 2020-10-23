@@ -38,7 +38,7 @@ class CouponBuilderTest extends TestCase
     public function testCreateSimpleValueCoupon(): void
     {
         $this->assertEquals(
-            new ValueCoupon(1, new Money(2000 , new Currency('EUR'))),
+            new ValueCoupon('COUPON123', new Money(2000 , new Currency('EUR'))),
             DefaultCouponBuilder::ofValue('COUPON123', 'EUR 2000')->getCoupon()
         );
     }
