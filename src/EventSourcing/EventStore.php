@@ -44,10 +44,12 @@ class EventStore
 
     public function getStream(AggregateIdentifier $identifier): array
     {
-        $aggregateStorePath = sprintf('%s/%s.json', $this->directory, $identifier->toString());
+
+        $aggregateStorePath = sprintf('%s\%s.json', $this->directory, $identifier->toString());
         Assertion::file($aggregateStorePath);
 
-        $events = json_decode($aggregateStorePath, true);
+        $events = json_decode(file_get_contents($aggregateStorePath), true);
+
         $stream = [];
         foreach ($events as $event) {
             $stream[] = call_user_func_array([$event['_headers']['eventType'], 'fromPayload'], [$event]);
